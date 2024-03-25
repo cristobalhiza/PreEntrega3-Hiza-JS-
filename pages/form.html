@@ -48,16 +48,40 @@
         </nav>
       </header>
       <form onsubmit="return false" class="d-grid m-auto justify-content-center gap-lg-3 mt-4" action="">
-        <label class="fw-bold" for="selector-reserva">Seleccione su reserva:</label>
-<select id="selector-reserva" aria-label="seleccion de reserva">
-    <option selected disabled>Seleccione el alojamiento o actividad a reservar</option>
-    <option value="camping">Zona de camping</option>
-    <option value="lodge">Suites Premium Lodge</option>
-    <option value="picnic">Zona de Picnic</option>
-    <option value="caminata">Caminata al lago</option>
-    <option value="cabalgata">Cabalgata Kalfú</option>
-    <option value="rafting">Rafting</option>
-  </select>
+        <!-- <label for="nombreInput" class="form-label">Nombre:</label>
+  <input type="text" class="form-control" id="nombreInput" placeholder="Ingrese su nombre"> -->
+  <div id="actividades" class="container-fluid">
+    <div class="actividad">
+      <input type="checkbox" id="camping" value="camping">
+      <label for="camping">Camping</label>
+      <input class="d-none" type="number" id="campingCantidad" value="1">
+    </div>
+    <div class="actividad">
+      <input type="checkbox" id="lodge" value="lodge">
+      <label for="lodge">Lodge</label>
+      <input class="d-none" type="number" id="lodgeCantidad" value="1">
+    </div>
+    <div class="actividad">
+      <input type="checkbox" id="picnic" value="picnic">
+      <label for="picnic">Picnic</label>
+      <input class="d-none" type="number" id="picnicCantidad" value="1">
+    </div>
+    <div class="actividad">
+      <input type="checkbox" id="caminata" value="caminata">
+      <label for="caminata">Caminata</label>
+      <input class="d-none" type="number" id="caminataCantidad" value="1">
+    </div>
+    <div class="actividad">
+      <input type="checkbox" id="cabalgata" value="cabalgata">
+      <label for="cabalgata">Cabalgata</label>
+      <input class="d-none" type="number" id="cabalgataCantidad" value="1">
+    </div>
+    <div class="actividad">
+      <input type="checkbox" id="rafting" value="rafting">
+      <label for="rafting">Rafting</label>
+      <input class="d-none" type="number" id="raftingCantidad" value="1">
+    </div>
+  </div>
   <br>
   <br>
     <label for="numDias">Días que se desea alojar <br>u horas si se trata de alguna actividad:</label>
@@ -70,6 +94,8 @@
     <p class="d-inline-block">Precio total: <span id="precioTotal"></span></p>
   </form>
       </form>
+      <div id="actividades"></div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
