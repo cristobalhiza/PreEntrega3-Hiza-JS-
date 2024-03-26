@@ -106,12 +106,12 @@ function guardarReserva(evento) {
   const reservaJSON = JSON.stringify(reserva);
 
   // Guardar reserva en localStorage
-  localStorage.setItem('reserva', reservaJSON);
-
+  localStorage.setItem('reserva_' + nombre, reservaJSON);
+  
   alert('Reserva guardada exitosamente!');
   window.location.assign("/pages/info.html")
 }
 
-document.querySelector('#formReserva').addEventListener("submit", guardarReserva);
+document.querySelector("#formReserva").addEventListener("submit", guardarReserva);
 
 

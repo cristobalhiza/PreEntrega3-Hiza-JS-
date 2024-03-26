@@ -1,33 +1,43 @@
 // Obtener informacion de la reserva
+let numeroForm = 1;
 
 function obtenerInfoReserva() {
-    // Obtener nombre ingresado por usuario
-    const nombreUsuario = document.querySelector('#nombreUsuario').value;
-    // Obtener la reserva del localStorage
-    const reservaJSON = localStorage.getItem('reserva');
-    // Verificar si hay una reserva almacenada y si se ingresó un nombre de usuario
-    if (reservaJSON && nombreUsuario) {
-      // Convertir la reserva de JSON a objeto JavaScript
+  // Obtener nombre ingresado por usuario y convertirlo a minúsculas
+  const nombreUsuario = document.querySelector('#nombreUsuario').value.toLowerCase();
+
+  // Iterar sobre el localStorage para buscar la reserva por nombre de usuario
+  let reservaEncontrada = false;
+  for (let i = 1; i <= localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith('reserva_')) {
+      const reservaJSON = localStorage.getItem(key);
       const reserva = JSON.parse(reservaJSON);
-  
-      // Verificar si el nombre ingresado coincide con el nombre en la reserva
-      if (reserva.nombre === nombreUsuario) {
-        // Mostrar la información de la reserva
+      // Convertir el nombre de la reserva a minúsculas para comparar
+      const nombreReserva = reserva.nombre.toLowerCase();
+      // Comparar los nombres de usuario en minúsculas
+      if (reserva && nombreReserva === nombreUsuario) {
+        // Mostrar la información de la reserva encontrada
         const infoReservaDiv = document.getElementById("infoReserva");
         infoReservaDiv.innerHTML = `
-          <h2>Información de Reserva para ${nombreUsuario}:</h2>
+          <h2>Información de Reserva para ${reserva.nombre}:</h2>
           <p><strong>Correo Electrónico:</strong> ${reserva.correo}</p>
           <p><strong>Fecha de Llegada al Parque:</strong> ${reserva.fechaLlegada}</p>
           <p><strong>Precio Total Reserva:</strong> $${reserva.precioTotal}</p>
         `;
-      } else {
-        alert("El nombre ingresado no coincide con el nombre en la reserva.");
+        // Cambiar la bandera a true
+        reservaEncontrada = true;
+        // Salir del bucle ya que se encontró la reserva
+        break;
       }
-    } else {
-      alert("No se encontró una reserva o no se ingresó un nombre de usuario.");
     }
   }
-  
+
+  // Si no se encontró ninguna reserva, mostrar un mensaje de alerta
+  if (!reservaEncontrada) {
+    alert("No se encontró una reserva para el nombre de usuario ingresado.");
+  }
+}
+
   // Asignar la función obtenerInformacionReserva al evento click del botón
   document.querySelector('#obtenerInfoBtn').addEventListener("click", obtenerInfoReserva);
 
@@ -63,8 +73,10 @@ function obtenerInfoReserva() {
   });
 
   function mostrarInfoReserva() {
+    // Obtener el número de formulario de la última reserva guardada
+  const ultimoNumeroForm = numeroForm - 1;
     // Obtener la reserva del localStorage
-    const reservaJSON = localStorage.getItem("reserva");
+  const reservaJSON = localStorage.getItem('reserva_' + ultimoNumeroForm);
     if (reservaJSON) {
       const reserva = JSON.parse(reservaJSON);
 
@@ -98,18 +110,18 @@ function obtenerInfoReserva() {
   }
 
   function actualizarReserva(nombre, correo, fechaLlegada) {
-    // Obtener la reserva del localStorage
-    const reservaJSON = localStorage.getItem("reserva");
+    // Obtener la reserva del localStorage utilizando el nombre como clave
+    const reservaJSON = localStorage.getItem('reserva_' + nombre);
     if (reservaJSON) {
       const reserva = JSON.parse(reservaJSON);
-
+  
       // Actualizar los datos de la reserva
       reserva.nombre = nombre;
       reserva.correo = correo;
       reserva.fechaLlegada = fechaLlegada;
-
+  
       // Guardar la reserva actualizada en el localStorage
-      localStorage.setItem("reserva", JSON.stringify(reserva));
+      localStorage.setItem('reserva_' + nombre, JSON.stringify(reserva));
     }
   }
 
