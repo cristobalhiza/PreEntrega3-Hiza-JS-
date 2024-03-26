@@ -43,156 +43,56 @@
           <!-- Navbar Links -->
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="/index.html">Inicio</a>
+              <a class="nav-link" aria-current="page" href="/index.html">Inicio</a>
               <a class="nav-link" href="/pages/form.html">Alojamientos y Actividades</a>
-              <a class="nav-link" href="/pages/info.html">Mis Reservas</a>
+              <a class="nav-link active" href="/pages/info.html">Mis Reservas</a>
             </div>
           </div>
         </div>
       </nav>
     </header>
     <!-- Main -->
-    <form
-      id="formReserva"
-      class="d-grid m-auto justify-content-center gap-lg-3 mt-4"
-      action=""
-    >
-      <!-- Sección de actividades -->
-      <div id="actividades" class="d-flex flex-column gap-3">
-        <h1>Seleccione la reserva que desee realizar</h1>
-        <!-- Camping -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input
-            class="btn-check"
-            type="checkbox"
-            id="camping"
-            value="camping"
-          />
-          <label class="btn btn-outline-primary" for="camping"
-            >Zona de Camping</label
-          >
-          <p class="d-none" id="campingTexto">
-            Ingrese la cantidad de dias para su estadía:
-          </p>
-          <input class="d-none" type="number" id="campingCantidad" value="1" />
-        </div>
-        <!-- Lodge -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input class="btn-check" type="checkbox" id="lodge" value="lodge" />
-          <label class="btn btn-outline-primary" for="lodge">Lodge</label>
-          <p class="d-none" id="lodgeTexto">
-            Ingrese la cantidad de dias para su estadía:
-          </p>
-          <input class="d-none" type="number" id="lodgeCantidad" value="1" />
-        </div>
-        <!-- Picnic -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input class="btn-check" type="checkbox" id="picnic" value="picnic" />
-          <label class="btn btn-outline-primary" for="picnic">Picnic</label>
-          <p class="d-none" id="picnicTexto">
-            Ingrese la cantidad de horas para zona de picnic
-          </p>
-          <input class="d-none" type="number" id="picnicCantidad" value="1" />
-        </div>
-        <!-- Caminata -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input
-            class="btn-check"
-            type="checkbox"
-            id="caminata"
-            value="caminata"
-          />
-          <label class="btn btn-outline-primary" for="caminata">Caminata</label>
-          <p class="d-none" id="caminataTexto">
-            Ingrese la cantidad de horas de caminata guiada
-          </p>
-          <input class="d-none" type="number" id="caminataCantidad" value="1" />
-        </div>
-        <!-- Cabalgata -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input
-            class="btn-check"
-            type="checkbox"
-            id="cabalgata"
-            value="cabalgata"
-          />
-          <label class="btn btn-outline-primary" for="cabalgata"
-            >Cabalgata</label
-          >
-          <p class="d-none" id="cabalgataTexto">
-            Ingrese la cantidad de horas de cabalgata
-          </p>
-          <input
-            class="d-none"
-            type="number"
-            id="cabalgataCantidad"
-            value="1"
-          />
-        </div>
-        <!-- Rafting -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input
-            class="btn-check"
-            type="checkbox"
-            id="rafting"
-            value="rafting"
-          />
-          <label class="btn btn-outline-primary" for="rafting">Rafting</label>
-          <p class="d-none" id="raftingTexto">
-            Ingrese la cantidad de horas que desea realizar
-          </p>
-          <input class="d-none" type="number" id="raftingCantidad" value="1" />
-        </div>
+    <main class="container mt-5">
+      <h1 class="h1">Obtener Información de Reserva</h1>
+      <div class="mb-3">
+        <label for="nombreUsuario" class="form-label">Ingrese su nombre:</label>
+        <input type="text" class="form-control" id="nombreUsuario" placeholder="Ingrese su nombre y apellido" required>
       </div>
-      <!-- Información de contacto y precio total -->
-      <div class="container">
-        <div class="row">
-          <h2>Información de contacto</h2>
-          <div class="col-md-6">
-            <label for="nombreInput" class="form-label">Nombre completo:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="nombreInput"
-              placeholder="Ingrese su nombre y apellido"
-              required
-            />
-            <label for="correoInput" class="form-label"
-              >Correo electrónico:</label
-            >
-            <input
-              type="email"
-              class="form-control"
-              id="correoInput"
-              placeholder="correo@dominio.com"
-            />
-          </div>
-          <div class="col-md-6">
-            <label for="fechaInput" class="form-label"
-              >Fecha de llegada al parque:</label
-            >
-            <input type="date" class="form-control" id="fechaInput" />
-            <p class="d-inline-block fs-4 mt-lg-4">
-              Precio total: $<span id="precioTotal"></span>
-            </p>
-          </div>
-        </div>
+      <button type="button" class="btn btn-info" id="obtenerInfoBtn">Obtener Información</button>
+    
+      <div id="infoReserva" class="mb-3">
+        <!-- Aquí se mostrará la información de la reserva -->
       </div>
-      <br />
-      <!-- Botón submit -->
-      <input
-        type="submit"
-        value="Reservar"
-        class="btn btn-primary w-25 m-auto"
-      />
-      <br />
-    </form>
+
+      <button type="button" class="btn btn-primary" id="editarBtn">Modifica tus datos</button>
+      <button  type="button" class="btn btn-warning" id="cancelarReservaBtn">Cancelar Reserva</button>
+    
+      <form id="modificarReservaForm" style="display: none;">
+        <div class="mb-3">
+          <label for="nombreInput" class="form-label">Nombre completo:</label>
+          <input type="text" class="form-control" id="nombreInput">
+        </div>
+    
+        <div class="mb-3">
+          <label for="correoInput" class="form-label">Correo electrónico:</label>
+          <input type="email" class="form-control" id="correoInput">
+        </div>
+    
+        <div class="mb-3">
+          <label for="fechaInput" class="form-label">Fecha de llegada al parque:</label>
+          <input type="date" class="form-control" id="fechaInput">
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      </form>
+    </main>
+    
     <!-- Bootstrap y Javascript -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="/main.js"></script>
+    <script src="/info.js"></script>
   </body>
 </html>

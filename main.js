@@ -16,17 +16,17 @@ function actualizarSeleccion() {
     if (isNaN(cantidad) || cantidad <= 0) {
       alert("Por favor, ingresa una cantidad válida para la actividad " + checkbox.value + ".");
     } else {
-    actividadesSeleccionadas.push({
-      actividad: checkbox.value,
-      cantidad: cantidad
-    });
-  }
+      actividadesSeleccionadas.push({
+        actividad: checkbox.value,
+        cantidad: cantidad
+      });
+    }
   });
 }
 
 // Añadir un evento de escucha para el cambio en los checkboxes
 document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-  checkbox.addEventListener("change", function() {
+  checkbox.addEventListener("change", function () {
     const campoCantidad = document.getElementById(checkbox.value + "Cantidad");
     const textoCantidad = document.getElementById(checkbox.value + "Texto");
     if (checkbox.checked) {
@@ -42,7 +42,7 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
 });
 
 document.querySelectorAll('input[type="number"]').forEach((input) => {
-  input.addEventListener("input", function() {
+  input.addEventListener("input", function () {
     actualizarSeleccion();
     mostrarPrecioTotal();
   });
@@ -52,11 +52,12 @@ function agregarActividad(actividad) {
   actividadesSeleccionadas.push(actividad);
   if (actividadesSeleccionadas.includes(actividad)) {
     // Si la actividad ya está seleccionada, la eliminamos
-    actividadesSeleccionadas = actividadesSeleccionadas.filter(act => act !== actividad);} else {
-      actividadesSeleccionadas.push(actividad);
-    }
+    actividadesSeleccionadas = actividadesSeleccionadas.filter(act => act !== actividad);
+  } else {
+    actividadesSeleccionadas.push(actividad);
+  }
   mostrarPrecioTotal();
-} 
+}
 
 // Función para calcular el precio total de la actividad
 function calcularPrecioTotal() {
@@ -108,7 +109,7 @@ function guardarReserva(evento) {
   localStorage.setItem('reserva', reservaJSON);
 
   alert('Reserva guardada exitosamente!');
-  window.location.assign("/index.html")
+  window.location.assign("/pages/info.html")
 }
 
 document.querySelector('#formReserva').addEventListener("submit", guardarReserva);
