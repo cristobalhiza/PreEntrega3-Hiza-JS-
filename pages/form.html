@@ -43,8 +43,12 @@
           <!-- Navbar Links -->
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" aria-current="page" href="/index.html">Inicio</a>
-              <a class="nav-link active" href="/pages/form.html">Alojamientos y Actividades</a>
+              <a class="nav-link" aria-current="page" href="/index.html"
+                >Inicio</a
+              >
+              <a class="nav-link active" href="/pages/form.html"
+                >Alojamientos y Actividades</a
+              >
               <a class="nav-link" href="/pages/info.html">Mis Reservas</a>
             </div>
           </div>
@@ -80,17 +84,23 @@
         <!-- Lodge -->
         <div class="actividad form-check d-flex justify-content-between">
           <input class="btn-check" type="checkbox" id="lodge" value="lodge" />
-          <label class="btn btn-outline-primary" for="lodge">Suites Premium Lodge</label>
+          <label class="btn btn-outline-primary" for="lodge"
+            >Suites Premium Lodge</label
+          >
           <p class="d-none" id="lodgeTexto">
             Ingrese la cantidad de <strong>días</strong> para su estadía:
           </p>
           <input class="d-none" type="number" id="lodgeCantidad" value="1" />
         </div>
         <!-- Picnic -->
-        <h2 class="display-6 fs-3 text text-decoration-underline">Actividades</h2>
+        <h2 class="display-6 fs-3 text text-decoration-underline">
+          Actividades
+        </h2>
         <div class="actividad form-check d-flex justify-content-between">
           <input class="btn-check" type="checkbox" id="picnic" value="picnic" />
-          <label class="btn btn-outline-primary" for="picnic">Zona de Picnic</label>
+          <label class="btn btn-outline-primary" for="picnic"
+            >Zona de Picnic</label
+          >
           <p class="d-none" id="picnicTexto">
             Ingrese la cantidad de <strong>horas</strong> para zona de picnic:
           </p>
@@ -104,7 +114,9 @@
             id="caminata"
             value="caminata"
           />
-          <label class="btn btn-outline-primary" for="caminata">Caminata al lago</label>
+          <label class="btn btn-outline-primary" for="caminata"
+            >Caminata al lago</label
+          >
           <p class="d-none" id="caminataTexto">
             Ingrese la cantidad de <strong>horas</strong> de caminata guiada:
           </p>
@@ -151,7 +163,9 @@
         <div class="row">
           <h2 class="mt-4">Información de contacto</h2>
           <div class="col-md-6">
-            <label for="nombreInput" class="form-check-label">Nombre completo:</label>
+            <label for="nombreInput" class="form-check-label"
+              >Nombre completo:</label
+            >
             <input
               type="text"
               class="form-control"
@@ -174,7 +188,7 @@
             <label for="fechaInput" class="form-check-label mt-2"
               >Fecha de llegada al parque:</label
             >
-            <input type="date" class="form-control" id="fechaInput" required/>
+            <input type="date" class="form-control" id="fechaInput" required />
             <p class="d-inline-block fs-4 mt-lg-4">
               Precio total: $<span id="precioTotal"></span>
             </p>

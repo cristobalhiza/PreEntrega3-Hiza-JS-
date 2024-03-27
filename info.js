@@ -85,14 +85,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
- // Agregar evento al botón de "Editar Reserva"
- document.getElementById("editarBtn").addEventListener("click", function () {
-  // Obtener el nombre del usuario para pasar como parámetro
-  const nombreUsuario = document.querySelector('#nombreUsuario').value.toLowerCase();
-  
-  // Llamar a la función de mostrar formulario de modificación y pasar el nombre del usuario
-  mostrarFormularioModificacion(nombreUsuario);
-});
+  // Agregar evento al botón de "Editar Reserva"
+  document.getElementById("editarBtn").addEventListener("click", function () {
+    // Obtener el nombre del usuario para pasar como parámetro
+    const nombreUsuario = document
+      .querySelector("#nombreUsuario")
+      .value.toLowerCase();
+
+    // Llamar a la función de mostrar formulario de modificación y pasar el nombre del usuario
+    mostrarFormularioModificacion(nombreUsuario);
+  });
 
   // Agregar evento al formulario de modificación
   document
