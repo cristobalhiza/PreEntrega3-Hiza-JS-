@@ -65,97 +65,31 @@ document
   .querySelector("#obtenerInfoBtn")
   .addEventListener("click", obtenerInfoReserva);
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Cargar información de reserva desde localStorage
-  mostrarInfoReserva();
-
-  function mostrarFormularioModificacion(nombre) {
-    // Obtener la reserva del localStorage
-    const reservaJSON = localStorage.getItem("reserva_" + nombre);
-    if (reservaJSON) {
-      const reserva = JSON.parse(reservaJSON);
-
-      // Llenar el formulario con los datos de la reserva actual
-      document.getElementById("nombreInput").value = reserva.nombre;
-      document.getElementById("correoInput").value = reserva.correo;
-      document.getElementById("fechaInput").value = reserva.fechaLlegada;
-
-      // Mostrar el formulario de modificación
-      document.getElementById("modificarReservaForm").style.display = "block";
-    }
-  }
-
-  // Agregar evento al botón de "Editar Reserva"
-  document.getElementById("editarBtn").addEventListener("click", function () {
-    // Obtener el nombre del usuario para pasar como parámetro
-    const nombreUsuario = document
-      .querySelector("#nombreUsuario")
-      .value.toLowerCase();
-
-    // Llamar a la función de mostrar formulario de modificación y pasar el nombre del usuario
-    mostrarFormularioModificacion(nombreUsuario);
-  });
-
-  // Agregar evento al formulario de modificación
-  document
-    .getElementById("modificarReservaForm")
-    .addEventListener("submit", function (event) {
-      // Evitar el envío del formulario
-      event.preventDefault();
-
-      // Obtener datos del formulario
-      const nombre = document.getElementById("nombreInput").value;
-      const correo = document.getElementById("correoInput").value;
-      const fechaLlegada = document.getElementById("fechaInput").value;
-
-      // Actualizar los datos de la reserva
-      actualizarReserva(nombre, correo, fechaLlegada);
-
-      // Mostrar la información actualizada de la reserva
-      mostrarInfoReserva();
-
-      // Ocultar el formulario de modificación
-      document.getElementById("modificarReservaForm").style.display = "none";
-    });
-});
-
-function actualizarReserva(nombre, correo, fechaLlegada) {
-  // Obtener la reserva del localStorage utilizando el nombre como clave
-  const reservaJSON = localStorage.getItem("reserva_" + nombre);
-  if (reservaJSON) {
-    const reserva = JSON.parse(reservaJSON);
-
-    // Actualizar los datos de la reserva
-    reserva.nombre = nombre;
-    reserva.correo = correo;
-    reserva.fechaLlegada = fechaLlegada;
-
-    // Guardar la reserva actualizada en el localStorage
-    localStorage.setItem("reserva_" + nombre, JSON.stringify(reserva));
-  }
-}
-
 function cancelarReserva() {
   // Obtener el nombre del usuario
-  const nombreUsuario = document.querySelector("#nombreUsuario").value;
+  const nombreUsuario = document
+    .querySelector("#nombreUsuario")
+    .value.toLowerCase(); // Convertir a minúsculas
 
-  // Obtener la información de la reserva del localStorage usando el nombre como parte de la clave
-  const reservaJSON = localStorage.getItem("reserva_" + nombreUsuario);
-
-  if (reservaJSON) {
-    // Eliminar la información de la reserva del localStorage
-    localStorage.removeItem("reserva_" + nombreUsuario);
-
-    // Mostrar un mensaje de confirmación al usuario
-    alert("Reserva cancelada correctamente.");
-
-    // Actualizar la página para mostrar la información actualizada
-    location.reload();
-  } else {
-    alert("No se encontró una reserva para cancelar.");
+  // Iterar sobre las claves de localStorage y buscar la reserva
+  let reservaEncontrada = false;
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith("reserva_")) {
+      // Convertir la clave a minúsculas para comparar
+      const keyLowerCase = key.toLowerCase();
+      if (keyLowerCase === "reserva_" + nombreUsuario) {
+        // Comparar claves en minúsculas
+        // Eliminar la reserva del localStorage
+        localStorage.removeItem(key);
+        alert("Reserva cancelada correctamente.");
+        location.reload();
+        reservaEncontrada = true;
+        break;
+      }
+    }
   }
 }
-
 // Agregar evento al botón de "Cancelar reserva"
 document
   .getElementById("cancelarReservaBtn")
