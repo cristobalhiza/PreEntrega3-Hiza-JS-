@@ -26,11 +26,12 @@
           document.getElementById(checkbox.value + "Cantidad").value
         );
         if (isNaN(cantidad) || cantidad <= 0) {
-          alert(
-            "Por favor, ingresa una cantidad válida para la actividad " +
-              checkbox.value +
-              "."
-          );
+          Swal.fire({
+            text: "Por favor, ingresa una cantidad mayor a 0",
+              animation: false,
+              timer: 2000,
+              confirmButtonColor: "green"
+            })
         } else {
           actividadesSeleccionadas.push({
             actividad: checkbox.value,
@@ -132,8 +133,14 @@
     // Guardar reserva en localStorage
     localStorage.setItem("reserva_" + nombre, reservaJSON);
 
-    alert("Reserva guardada exitosamente!");
-    window.location.assign("/pages/info.html");
+    Swal.fire({
+      icon: 'success',
+      text: 'Reserva guardada exitosamente, nos vemos!',
+      timer: 2000,
+      confirmButtonColor: "green"
+    }).then(() => {
+      window.location.assign("/pages/info.html");
+    });
   }
 
   document

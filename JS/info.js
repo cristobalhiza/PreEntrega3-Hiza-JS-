@@ -36,7 +36,14 @@ function obtenerInfoReserva() {
 
   // Si no se encontró ninguna reserva, mostrar un mensaje de alerta
   if (!reservaEncontrada) {
-    alert("No se encontró una reserva para el nombre de usuario ingresado.");
+    Swal.fire({
+      text: "No se encontró una reserva para el nombre de usuario ingresado.",
+        animation: false,
+        icon: "error",
+        timer: 4000,
+        width: "26em",
+        confirmButtonColor: "green"
+      })
   }
 }
 function mostrarInfoReserva() {

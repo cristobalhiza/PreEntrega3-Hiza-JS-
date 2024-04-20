@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/cristobalhiza/PreEntrega3-Hiza-JS-#readme",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "sweetalert2": "^11.6.13"
   }
 }
