@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "nombre": "camping",
+        "precio": 15,
+        "descripcion": "Camping en un área designada del parque hasta para 4 personas"
+    },
+    {
+        "id": 2,
+        "nombre": "lodge",
+        "precio": 80,
+        "descripcion": "Alojamiento en cabañas con capacidad para hasta 6 personas"
+    },
+    {
+        "id": 3,
+        "nombre": "picnic",
+        "precio": 10,
+        "descripcion": "Área designada para picnic al aire libre hasta para 6 personas"
+    },
+    {
+        "id": 4,
+        "nombre": "caminata",
+        "precio": 8,
+        "descripcion": "Recorrido guiado por senderos señalizados del parque"
+    },
+    {
+        "id": 5,
+        "nombre": "cabalgata",
+        "precio": 40,
+        "descripcion": "Paseo a caballo por senderos del parque"
+    },
+    {
+        "id": 6,
+        "nombre": "rafting",
+        "precio": 30,
+        "descripcion": "Descenso en balsas neumáticas por el río dentro del parque"
+    }
+]

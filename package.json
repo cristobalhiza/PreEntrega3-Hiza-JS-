@@ -1,0 +1,22 @@
+{
+  "name": "proyecto-coder-js",
+  "version": "1.0.0",
+  "description": "proyecto coder javascript",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristobalhiza/PreEntrega3-Hiza-JS-.git"
+  },
+  "author": "Cristobal Hiza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristobalhiza/PreEntrega3-Hiza-JS-/issues"
+  },
+  "homepage": "https://github.com/cristobalhiza/PreEntrega3-Hiza-JS-#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}
