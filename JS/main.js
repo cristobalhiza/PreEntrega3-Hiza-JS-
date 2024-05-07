@@ -116,6 +116,16 @@ return;
     }
   }
 
+  // Validar la fecha de llegada
+  function validarFechaLlegada(fecha) {
+  const fechaActual = new Date();
+  const fechaSeleccionada = new Date(fecha);
+  const unAnioDespues = new Date();
+  unAnioDespues.setFullYear(unAnioDespues.getFullYear() + 1);
+
+  return fechaSeleccionada > fechaActual && fechaSeleccionada <= unAnioDespues;
+}
+
   // FORMULARIO RESERVA
 
   function guardarReserva(evento) {
@@ -125,6 +135,47 @@ return;
     const nombre = document.querySelector("#nombreInput").value;
     const correo = document.querySelector("#correoInput").value;
     const fechaLlegada = document.querySelector("#fechaInput").value;
+
+    if (!validarFechaLlegada(fechaLlegada)) {
+      Swal.fire({
+        text: "La fecha de llegada debe ser mayor a la actual y no mayor a un año.",
+        animation: false,
+        timer: 3000,
+        confirmButtonColor: "green"
+      });
+      return;
+    }
+
+    // Validar si se ha seleccionado alguna actividad
+  if (actividadesSeleccionadas.length === 0) {
+    Swal.fire({
+      text: "Debe seleccionar al menos un alojamiento o actividad para realizar la reserva.",
+      animation: false,
+      timer: 3000,
+      confirmButtonColor: "green"
+    });
+    return;
+  }
+
+  // Validar si ya existe una reserva con el mismo nombre
+const reservaExistente = localStorage.getItem("reserva_" + nombre);
+if (reservaExistente !== null) {
+  Swal.fire({
+    text: "Ya existe una reserva con el nombre proporcionado. ¿Deseas eliminar la reserva existente antes de realizar una nueva?",
+    animation: false,
+    showCancelButton: true,
+    confirmButtonColor: "green",
+    cancelButtonColor: "red",
+    confirmButtonText: "Sí",
+    cancelButtonText: "No, modificar la reserva actual"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Redirigir a la página para eliminar la reserva existente
+      window.location.assign("/pages/info.html");
+    }
+  });
+  return;
+}
 
       // Validar las actividades seleccionadas
       for (const actividadSeleccionada of actividadesSeleccionadas) {
