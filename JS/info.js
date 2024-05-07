@@ -38,12 +38,12 @@ function obtenerInfoReserva() {
   if (!reservaEncontrada) {
     Swal.fire({
       text: "No se encontró una reserva para el nombre de usuario ingresado.",
-        animation: false,
-        icon: "error",
-        timer: 4000,
-        width: "26em",
-        confirmButtonColor: "green"
-      })
+      animation: false,
+      icon: "error",
+      timer: 4000,
+      width: "26em",
+      confirmButtonColor: "green"
+    })
   }
 }
 function mostrarInfoReserva() {

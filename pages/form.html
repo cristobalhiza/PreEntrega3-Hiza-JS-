@@ -1,222 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reserva Natural Kalfú | Alojamientos y Actividades Reserva</title>
-  </head>
-  <body>
-    <header>
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/index.html"
-            ><img
-              src="/img/lake-svgrepo-com.svg"
-              alt="Logo"
-              width="60"
-              height="48"
-            />
-            <h1 class="d-inline-block align-text-center fs-5">
-              Reserva Natural Kalfú
-            </h1>
-          </a>
-          <!-- Navbar Toggler -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <!-- Navbar Links -->
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link" aria-current="page" href="../index.html"
-                >Inicio</a
-              >
-              <a class="nav-link active" href="form.html"
-                >Alojamientos y Actividades</a
-              >
-              <a class="nav-link" href="info.html">Mis Reservas</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <!-- Main -->
-    <form
-      id="formReserva"
-      class="d-grid m-auto justify-content-center gap-lg-3 mt-4"
-      action=""
-    >
-      <!-- Sección de actividades -->
-      <div id="actividades" class="d-flex flex-column gap-3">
-        <h1>Seleccione la reserva que desee realizar</h1>
-        <h2 class="display-6 fs-3 text-decoration-underline">Alojamientos</h2>
-                <!-- Camping -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input
-            class="btn-check"
-            type="checkbox"
-            id="camping"
-            value="camping"
-          />
-          <label class="btn btn-outline-primary btn-success text-white" for="camping"
-            >Zona de Camping</label
-          >
-          <span id="campingPrecio" class="precio"></span>
-          <p class="d-none" id="campingTexto">
-            Ingrese la cantidad de <strong>días</strong> para su estadía (Máx. 90):
-          </p>
-          <input class="d-none" type="number" id="campingCantidad" value="1" />
-        </div>
-        <!-- Lodge -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input class="btn-check" type="checkbox" id="lodge" value="lodge" />
-          <label class="btn btn-outline-primary btn-success text-white" for="lodge"
-            >Suites Premium Lodge</label
-          >
-          <span id="lodgePrecio" class="precio"></span>
-          <p class="d-none" id="lodgeTexto">
-            Ingrese la cantidad de <strong>días</strong> para su estadía (Máx. 90):
-          </p>
-          <input class="d-none" type="number" id="lodgeCantidad" value="1" />
-        </div>
-        <!-- Picnic -->
-        <h2 class="display-6 fs-3 text text-decoration-underline">
-          Actividades
-        </h2>
-        <div class="actividad form-check d-flex justify-content-between">
-          <input class="btn-check" type="checkbox" id="picnic" value="picnic" />
-          <label class="btn btn-outline-primary btn-success text-white" for="picnic"
-            >Zona de Picnic</label
-          >
-          <span id="picnicPrecio" class="precio"></span>
-          <p class="d-none" id="picnicTexto">
-            Ingrese la cantidad de <strong>horas</strong> para zona de picnic (Máx. 6):
-          </p>
-          <input class="d-none" type="number" id="picnicCantidad" value="1" />
-        </div>
-        <!-- Caminata -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input
-            class="btn-check"
-            type="checkbox"
-            id="caminata"
-            value="caminata"
-          />
-          <label class="btn btn-outline-primary btn-success text-white" for="caminata"
-            >Caminata al lago</label
-          >
-          <span id="caminataPrecio" class="precio"></span>
-          <p class="d-none" id="caminataTexto">
-            Ingrese la cantidad de <strong>horas</strong> de caminata guiada (Máx. 6):
-          </p>
-          <input class="d-none" type="number" id="caminataCantidad" value="1" />
-        </div>
-        <!-- Cabalgata -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input
-            class="btn-check"
-            type="checkbox"
-            id="cabalgata"
-            value="cabalgata"
-          />
-          <label class="btn btn-outline-primary btn-success text-white" for="cabalgata"
-            >Cabalgata Kalfú</label
-          >
-          <span id="cabalgataPrecio" class="precio"></span>
-          <p class="d-none" id="cabalgataTexto">
-            Ingrese la cantidad de <strong>horas</strong> de cabalgata (Máx. 6):
-          </p>
-          <input
-            class="d-none"
-            type="number"
-            id="cabalgataCantidad"
-            value="1"
-          />
-        </div>
-        <!-- Rafting -->
-        <div class="actividad form-check d-flex justify-content-between">
-          <input
-            class="btn-check"
-            type="checkbox"
-            id="rafting"
-            value="rafting"
-          />
-          <label class="btn btn-outline-primary btn-success text-white" for="rafting">Rafting</label>
-          <span id="raftingPrecio" class="precio"></span>
-          <p class="d-none" id="raftingTexto">
-            Ingrese la cantidad de <strong>horas</strong> que desea realizar (Máx. 6):
-          </p>
-          <input class="d-none" type="number" id="raftingCantidad" value="1" />
-        </div>
-      </div>
-      <!-- Información de contacto y precio total -->
-      <div class="container">
-        <div class="row">
-          <h2 class="mt-4">Información de contacto</h2>
-          <div class="col-md-6">
-            <label for="nombreInput" class="form-check-label"
-              >Nombre completo:</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="nombreInput"
-              placeholder="Ingrese su nombre y apellido"
-              required
-            />
-            <label for="correoInput" class="form-check-label mt-2"
-              >Correo electrónico:</label
-            >
-            <input
-              type="email"
-              class="form-control"
-              id="correoInput"
-              placeholder="correo@dominio.com"
-              required
-            />
-          </div>
-          <div class="col-md-6">
-            <label for="fechaInput" class="form-check-label mt-2"
-              >Fecha de llegada al parque:</label
-            >
-            <input type="date" class="form-control" id="fechaInput" required />
-            <p class="d-inline-block fs-4 mt-lg-4">
-              Precio total: $<span id="precioTotal"></span>
-            </p>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserva Natural Kalfú | Alojamientos y Actividades Reserva</title>
+</head>
+
+<body>
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html"><img src="/img/lake-svgrepo-com.svg" alt="Logo" width="60"
+            height="48" />
+          <h1 class="d-inline-block align-text-center fs-5">
+            Reserva Natural Kalfú
+          </h1>
+        </a>
+        <!-- Navbar Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" aria-current="page" href="../index.html">Inicio</a>
+            <a class="nav-link active" href="form.html">Alojamientos y Actividades</a>
+            <a class="nav-link" href="info.html">Mis Reservas</a>
           </div>
         </div>
       </div>
-      <br />
-      <!-- Botón submit -->
-      <input
-        type="submit"
-        value="Reservar"
-        class="btn btn-primary w-25 m-auto btn-success text-white"
-        id="enviarReserva"
-      />
-      <br />
-    </form>
-    <!-- Bootstrap y Javascript -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../js/main.js"></script>
-  </body>
+    </nav>
+  </header>
+  <!-- Main -->
+  <form id="formReserva" class="d-grid m-auto justify-content-center gap-lg-3 mt-4" action="">
+    <!-- Sección de actividades -->
+    <div id="actividades" class="d-flex flex-column gap-3">
+      <h1>Seleccione la reserva que desee realizar</h1>
+      <h2 class="display-6 fs-3 text-decoration-underline">Alojamientos</h2>
+      <!-- Camping -->
+      <div class="actividad form-check d-flex justify-content-between">
+        <input class="btn-check" type="checkbox" id="camping" value="camping" />
+        <label class="btn btn-outline-primary btn-success text-white" for="camping">Zona de Camping</label>
+        <span id="campingPrecio" class="precio"></span>
+        <p class="d-none" id="campingTexto">
+          Ingrese la cantidad de <strong>días</strong> para su estadía (Máx. 90):
+        </p>
+        <input class="d-none" type="number" id="campingCantidad" value="1" />
+      </div>
+      <!-- Lodge -->
+      <div class="actividad form-check d-flex justify-content-between">
+        <input class="btn-check" type="checkbox" id="lodge" value="lodge" />
+        <label class="btn btn-outline-primary btn-success text-white" for="lodge">Suites Premium Lodge</label>
+        <span id="lodgePrecio" class="precio"></span>
+        <p class="d-none" id="lodgeTexto">
+          Ingrese la cantidad de <strong>días</strong> para su estadía (Máx. 90):
+        </p>
+        <input class="d-none" type="number" id="lodgeCantidad" value="1" />
+      </div>
+      <!-- Picnic -->
+      <h2 class="display-6 fs-3 text text-decoration-underline">
+        Actividades
+      </h2>
+      <div class="actividad form-check d-flex justify-content-between">
+        <input class="btn-check" type="checkbox" id="picnic" value="picnic" />
+        <label class="btn btn-outline-primary btn-success text-white" for="picnic">Zona de Picnic</label>
+        <span id="picnicPrecio" class="precio"></span>
+        <p class="d-none" id="picnicTexto">
+          Ingrese la cantidad de <strong>horas</strong> para zona de picnic (Máx. 6):
+        </p>
+        <input class="d-none" type="number" id="picnicCantidad" value="1" />
+      </div>
+      <!-- Caminata -->
+      <div class="actividad form-check d-flex justify-content-between">
+        <input class="btn-check" type="checkbox" id="caminata" value="caminata" />
+        <label class="btn btn-outline-primary btn-success text-white" for="caminata">Caminata al lago</label>
+        <span id="caminataPrecio" class="precio"></span>
+        <p class="d-none" id="caminataTexto">
+          Ingrese la cantidad de <strong>horas</strong> de caminata guiada (Máx. 6):
+        </p>
+        <input class="d-none" type="number" id="caminataCantidad" value="1" />
+      </div>
+      <!-- Cabalgata -->
+      <div class="actividad form-check d-flex justify-content-between">
+        <input class="btn-check" type="checkbox" id="cabalgata" value="cabalgata" />
+        <label class="btn btn-outline-primary btn-success text-white" for="cabalgata">Cabalgata Kalfú</label>
+        <span id="cabalgataPrecio" class="precio"></span>
+        <p class="d-none" id="cabalgataTexto">
+          Ingrese la cantidad de <strong>horas</strong> de cabalgata (Máx. 6):
+        </p>
+        <input class="d-none" type="number" id="cabalgataCantidad" value="1" />
+      </div>
+      <!-- Rafting -->
+      <div class="actividad form-check d-flex justify-content-between">
+        <input class="btn-check" type="checkbox" id="rafting" value="rafting" />
+        <label class="btn btn-outline-primary btn-success text-white" for="rafting">Rafting</label>
+        <span id="raftingPrecio" class="precio"></span>
+        <p class="d-none" id="raftingTexto">
+          Ingrese la cantidad de <strong>horas</strong> que desea realizar (Máx. 6):
+        </p>
+        <input class="d-none" type="number" id="raftingCantidad" value="1" />
+      </div>
+    </div>
+    <!-- Información de contacto y precio total -->
+    <div class="container">
+      <div class="row">
+        <h2 class="mt-4">Información de contacto</h2>
+        <div class="col-md-6">
+          <label for="nombreInput" class="form-check-label">Nombre completo:</label>
+          <input type="text" class="form-control" id="nombreInput" placeholder="Ingrese su nombre y apellido"
+            required />
+          <label for="correoInput" class="form-check-label mt-2">Correo electrónico:</label>
+          <input type="email" class="form-control" id="correoInput" placeholder="correo@dominio.com" required />
+        </div>
+        <div class="col-md-6">
+          <label for="fechaInput" class="form-check-label mt-2">Fecha de llegada al parque:</label>
+          <input type="date" class="form-control" id="fechaInput" required />
+          <p class="d-inline-block fs-4 mt-lg-4">
+            Precio total: $<span id="precioTotal"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <br />
+    <!-- Botón submit -->
+    <input type="submit" value="Reservar" class="btn btn-primary w-25 m-auto btn-success text-white"
+      id="enviarReserva" />
+    <br />
+  </form>
+  <!-- Bootstrap y Javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../js/main.js"></script>
+</body>
+
 </html>
