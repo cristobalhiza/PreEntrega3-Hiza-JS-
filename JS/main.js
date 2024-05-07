@@ -1,5 +1,5 @@
   const preciosActividades = {};
-
+  
   async function fetchData() {
     try {
       const response = await fetch('../data.json');
@@ -12,7 +12,6 @@
       console.error(error);
     }
   }
-
   fetchData()
 
   let actividadesSeleccionadas = [];
@@ -26,12 +25,7 @@
           document.getElementById(checkbox.value + "Cantidad").value
         );
         if (isNaN(cantidad) || cantidad <= 0) {
-          Swal.fire({
-            text: "Por favor, ingresa una cantidad mayor a 0",
-              animation: false,
-              timer: 2000,
-              confirmButtonColor: "green"
-            })
+return;
         } else {
           actividadesSeleccionadas.push({
             actividad: checkbox.value,
@@ -62,6 +56,23 @@
 
   document.querySelectorAll('input[type="number"]').forEach((input) => {
     input.addEventListener("input", function () {
+      actualizarSeleccion();
+      mostrarPrecioTotal();
+    });
+  });
+
+  document.querySelectorAll('input[type="number"]').forEach((input) => {
+    input.addEventListener("input", function () {
+      const cantidad = parseInt(input.value);
+      if (isNaN(cantidad) || cantidad < 0) {
+        input.value = ""; 
+        Swal.fire({
+          text: "Por favor, ingresa un número mayor a 0",
+          animation: false,
+          timer: 2000,
+          confirmButtonColor: "green"
+        });
+      }
       actualizarSeleccion();
       mostrarPrecioTotal();
     });
@@ -115,11 +126,45 @@
     const correo = document.querySelector("#correoInput").value;
     const fechaLlegada = document.querySelector("#fechaInput").value;
 
+      // Validar las actividades seleccionadas
+      for (const actividadSeleccionada of actividadesSeleccionadas) {
+        if (actividadSeleccionada.cantidad < 0) {
+          Swal.fire({
+            text: "La cantidad de " + actividadSeleccionada.actividad + " no puede ser negativa.",
+            animation: false,
+            timer: 3000,
+            confirmButtonColor: "green"
+          });
+          return;
+        }
+    
+        if (actividadSeleccionada.actividad === 'camping' || actividadSeleccionada.actividad === 'lodge') {
+          if (actividadSeleccionada.cantidad > 90) {
+            Swal.fire({
+              text: "Solo se permite reservar hasta 90 días para cada alojamiento.",
+              animation: false,
+              timer: 3000,
+              confirmButtonColor: "green"
+            });
+            return;
+          }
+        } else {
+          if (actividadSeleccionada.cantidad > 6) {
+            Swal.fire({
+              text: "Solo se permite reservar hasta 6 horas para cada actividad.",
+              animation: false,
+              timer: 3000,
+              confirmButtonColor: "green"
+            });
+            return;
+          }
+        }
+      }
     // Obtener precio total
     const precioTotal = document.getElementById("precioTotal").textContent;
+    
 
     // Crear objeto reserva
-
     const reserva = {
       nombre: nombre,
       correo: correo,
