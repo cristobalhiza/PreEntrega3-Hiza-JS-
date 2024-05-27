@@ -4,13 +4,13 @@ async function fetchData() {
   try {
     const response = await fetch('../data.json');
     const data = await response.json();
-    for (const actividad of data) {
+    data.forEach(actividad => {
       preciosActividades[actividad.nombre] = actividad.precio;
       const precioSpan = document.querySelector(`#${actividad.nombre}Precio`);
       if (precioSpan) {
         precioSpan.textContent = "$" + actividad.precio + " c/u";
       }
-    }
+    });
     return preciosActividades;
   } catch (error) {
     console.error(error);
@@ -21,22 +21,12 @@ fetchData()
 let actividadesSeleccionadas = [];
 
 function actualizarSeleccion() {
-  actividadesSeleccionadas = [];
-  document
-    .querySelectorAll('input[type="checkbox"]:checked')
-    .forEach((checkbox) => {
-      const cantidad = parseInt(
-        document.getElementById(checkbox.value + "Cantidad").value
-      );
-      if (isNaN(cantidad) || cantidad <= 0) {
-        return;
-      } else {
-        actividadesSeleccionadas.push({
-          actividad: checkbox.value,
-          cantidad: cantidad,
-        });
-      }
-    });
+  actividadesSeleccionadas = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+    .map(checkbox => {
+      const cantidad = parseInt(document.getElementById(`${checkbox.value}Cantidad`).value);
+      return !isNaN(cantidad) && cantidad > 0 ? { actividad: checkbox.value, cantidad } : null;
+    })
+    .filter(actividad => actividad !== null);
   mostrarPrecioTotal();
 }
 

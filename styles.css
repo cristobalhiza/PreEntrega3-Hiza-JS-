@@ -1,0 +1,121 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5DC;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    background: #2F4F4F;
+  }
+  
+  .navbar-brand h1 {
+    color: #F5F5DC;
+    margin-left: 10px;
+    font-family: 'Lobster', cursive;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #F5F5DC !important;
+  }
+  
+  h1, h2 {
+    color: #2F4F4F;
+  }
+  
+  .hero {
+    background: url('/img/DALL·E\ 2024-05-27\ 19.07.10\ -\ A\ serene\ lake\ with\ clear\ blue\ water\ is\ surrounded\ by\ lush\ green\ forests\ and\ towering\ mountains\ in\ the\ background.\ The\ sky\ is\ bright\ blue\ with\ a\ few\ sc.webp') no-repeat center center;
+    background-size: cover;
+    height: 90vh;
+    color: #F5F5DC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    color: #F5F5DC;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'Lobster', cursive;
+  }
+  
+  h2   {
+    font-family:'Roboto', sans-serif;
+  }
+  .card {
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+    background-color: #F5F5DC;
+    border: 1px solid #8B4513;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2F4F4F;
+  }
+  
+  .card-precio {
+    font-size: 1.2rem;
+    color: #8B4513;
+  }
+  
+  .btn-outline-primary {
+    border-color: #556B2F;
+    color: #556B2F;
+  }
+  
+  .btn-outline-primary:hover, .btn-check:checked + .btn-outline-primary {
+    background-color: #556B2F;
+    color: #F5F5DC;
+  }
+  
+  .btn-success {
+    background-color: #4682B4;
+    border-color: #4682B4;
+  }
+  
+  .btn-success:hover {
+    background-color: #5A9BD5;
+    border-color: #5A9BD5;
+  }
+  
+  .btn-info {
+    background-color: #4682B4;
+    border-color: #4682B4;
+    color: #F5F5DC;
+  }
+  
+  .btn-info:hover {
+    background-color: #5A9BD5;
+    border-color: #5A9BD5;
+  }
+  
+  .btn-warning {
+    background-color: #8B4513;
+    border-color: #8B4513;
+    color: #F5F5DC;
+  }
+  
+  .btn-warning:hover {
+    background-color: #A0522D;
+    border-color: #A0522D;
+  }
+  
+  footer {
+    background: #2F4F4F;
+    color: #F5F5DC;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+  }
+  
